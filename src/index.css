@@ -1,3 +1,9 @@
 @import "tailwindcss";
 @plugin "daisyui";
 @plugin "@tailwindcss/typography";
+
+@layer utilities {
+  .align-element {
+    @apply mx-auto px-8 max-w-6xl;
+  }
+}
