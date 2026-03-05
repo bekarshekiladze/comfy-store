@@ -1,8 +1,39 @@
 import { NavLink } from "react-router-dom";
 import { FaBarsStaggered } from "react-icons/fa6";
 import { BsMoonFill, BsSunFill, BsCart3 } from "react-icons/bs";
+import NavLinks from "./NavLinks";
+import { useEffect, useState } from "react";
+
+const themes = {
+  winter: "winter",
+  dracula: "dracula",
+  light: "light",
+  dark: "dark",
+};
+
+const getInitialTheme = () => {
+  const saved = localStorage.getItem("theme");
+  if (saved === themes.winter || saved === themes.dracula) {
+    return saved;
+  }
+
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  return prefersDark ? themes.dracula : themes.winter;
+};
 
 function Navbar() {
+  const [theme, setTheme] = useState(getInitialTheme);
+  const handleTheme = () => {
+    const { winter, dracula } = themes;
+    const newTheme = theme === winter ? dracula : winter;
+    setTheme(newTheme);
+  };
+
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+    document.documentElement.setAttribute("data-theme", theme);
+  }, [theme]);
+
   return (
     <nav className="bg-base-200">
       <div className="navbar align-element">
@@ -11,7 +42,7 @@ function Navbar() {
           <NavLink
             to={"/"}
             aria-current="page"
-            className="hidden lg:flex btn btn-primary text-3xl items-center active"
+            className="hidden lg:flex btn btn-primary text-3xl items-center"
           >
             C
           </NavLink>
@@ -21,20 +52,25 @@ function Navbar() {
             </label>
             <ul
               tabIndex={"0"}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-200 rounded-box w-52"
-            ></ul>
+              className="menu menu-sm dropdown-content mt-3 z-1 p-2 shadow bg-base-200 rounded-box w-52"
+            >
+              <NavLinks />
+            </ul>
           </div>
         </div>
         {/* navbar center */}
         <div className="navbar-center hidden lg:flex ">
-          <ul className="menu menu-horizontal"></ul>
+          <ul className="menu menu-horizontal">
+            <NavLinks />
+          </ul>
         </div>
         {/* navbar end */}
         <div className="navbar-end">
+          {/* THEME SETUP */}
           <label className="swap swap-rotate">
-            <input type="checkbox" />
-            <BsMoonFill />
-            <BsSunFill />
+            <input type="checkbox" onChange={handleTheme} />
+            <BsSunFill className="swap-on" />
+            <BsMoonFill className="swap-off" />
           </label>
           <NavLink
             className="btn btn-ghost btn-circle btn-md ml-4"

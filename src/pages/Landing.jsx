@@ -1,4 +1,10 @@
+import { Hero } from "../widgets/landing";
+
 function Landing() {
-  return <div>Landing</div>;
+  return (
+    <>
+      <Hero />
+    </>
+  );
 }
 export default Landing;
