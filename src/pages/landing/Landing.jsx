@@ -1,4 +1,8 @@
-import { Hero } from "../widgets/landing";
+import { Hero } from "../../widgets/landing";
+
+
+
+
 
 function Landing() {
   return (

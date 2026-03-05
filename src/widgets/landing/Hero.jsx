@@ -26,10 +26,10 @@ function Hero() {
           </Link>
         </div>
       </div>
-      <div className="hidden h-[28rem] lg:carousel carousel-center p-4 space-x-4 bg-neutral rounded-box">
+      <div className="hidden  h-[28rem] lg:flex lg:carousel carousel-center p-4 space-x-4 bg-neutral rounded-box">
         {carouselImages.map((item) => {
           return (
-            <div className="carousel-item">
+            <div className="carousel-item" key={item}>
               <img
                 src={item}
                 alt="carousel img"

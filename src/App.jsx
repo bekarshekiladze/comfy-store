@@ -12,6 +12,8 @@ import {
   Register,
   SingleProduct,
 } from "./pages";
+import { ErrorElement } from "./shared/ui";
+import loader from "./pages/landing/loader";
 
 function App() {
   const router = createBrowserRouter([
@@ -23,6 +25,8 @@ function App() {
         {
           index: true,
           element: <Landing />,
+          errorElement: <ErrorElement />,
+          loader: loader,
         },
         {
           path: "products",
