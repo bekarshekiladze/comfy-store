@@ -1,13 +1,10 @@
-import { Hero } from "../../widgets/landing";
-
-
-
-
+import { FeaturedProducts, Hero } from "../../widgets/landing";
 
 function Landing() {
   return (
     <>
       <Hero />
+      <FeaturedProducts />
     </>
   );
 }

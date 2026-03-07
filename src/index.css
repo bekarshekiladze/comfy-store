@@ -2,7 +2,7 @@
 @plugin "daisyui" {
   themes:
     light,
-    dark ,
+    dark,
     cupcake,
     winter --default,
     dracula --prefersdark;
@@ -15,3 +15,9 @@
     @apply mx-auto px-8 max-w-6xl;
   }
 }
+
+/* 
+Temporary solution for Tailwind v4's hover: - 
+not working on hybrid devices 
+*/
+@custom-variant hover (&:hover);
