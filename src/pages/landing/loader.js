@@ -1,11 +1,6 @@
-import { httpClient } from "../../shared/api";
+import { fetchFeaturedProducts } from "../../shared/api/products";
 
-const url = "/products?featured=true";
-
-const loader = async () => {
-  const response = await httpClient(url);
-  const products = response.data.data;
+export const loader = async () => {
+  const products = await fetchFeaturedProducts();
   return products;
 };
-
-export default loader;
