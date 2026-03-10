@@ -4,13 +4,13 @@ import PaginationContainer from "../../widgets/products/PaginationContainer";
 import ProductsContainer from "../../widgets/products/ProductsContainer";
 
 function Products() {
-  const data = useLoaderData();
-  console.log(data);
+  const { products, meta } = useLoaderData();
+  console.log({ products, meta });
 
   return (
     <>
       <Filters />
-      <ProductsContainer />
+      <ProductsContainer products={products} meta={meta} />
       <PaginationContainer />
     </>
   );
