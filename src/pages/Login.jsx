@@ -1,6 +1,5 @@
 import { Form, Link } from "react-router-dom";
-import SubmitBtn from "../features/auth/ui/SubmitBtn";
-import { FormInput } from "../shared/ui";
+import { FormInput, SubmitBtn } from "../features/auth/ui";
 
 function Login() {
   return (
