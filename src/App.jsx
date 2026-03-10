@@ -6,15 +6,16 @@ import {
   Error,
   HomeLayout,
   Landing,
+  landingLoader,
   Login,
   Orders,
   Products,
+  productsLoader,
   Register,
   SingleProduct,
+  productLoader,
 } from "./pages";
 import { ErrorElement } from "./shared/ui";
-import { landingLoader } from "./pages/landing";
-import { productLoader } from "./pages/singleProduct";
 
 function App() {
   const router = createBrowserRouter([
@@ -32,6 +33,8 @@ function App() {
         {
           path: "products",
           element: <Products />,
+          errorElement: <ErrorElement />,
+          loader: productsLoader,
         },
         {
           path: "products/:id",

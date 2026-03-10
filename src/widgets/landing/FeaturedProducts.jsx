@@ -1,12 +1,12 @@
 import { SectionTitle } from "../../shared/ui";
 import ProductsGrid from "../products/ProductsGrid";
 
-function FeaturedProducts() {
+function FeaturedProducts({ featuredProducts }) {
   return (
-    <div className="pt-24">
+    <section className="pt-24">
       <SectionTitle text={"featured products"} />
-      <ProductsGrid />
-    </div>
+      <ProductsGrid products={featuredProducts} />
+    </section>
   );
 }
 export default FeaturedProducts;
