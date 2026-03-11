@@ -1,5 +1,5 @@
 import { useLoaderData } from "react-router-dom";
-import Filters from "../../widgets/products/Filters";
+import Filters from "../../features/products/filters/ui/Filters";
 import PaginationContainer from "../../widgets/products/PaginationContainer";
 import ProductsContainer from "../../widgets/products/ProductsContainer";
 
@@ -9,7 +9,7 @@ function Products() {
 
   return (
     <>
-      <Filters />
+      <Filters meta={meta} />
       <ProductsContainer products={products} meta={meta} />
       <PaginationContainer />
     </>

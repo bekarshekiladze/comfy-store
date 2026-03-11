@@ -9,7 +9,11 @@ function ProductsContainer({ products, meta }) {
   const [layout, setLayout] = useState("grid");
 
   const setActiveStyles = (pattern) => {
-    return `text-xl btn btn-circle btn-sm`;
+    return `text-xl btn btn-circle btn-sm ${
+      pattern === layout
+        ? "btn-primary text-primary-content"
+        : "btn-ghost text-based-content"
+    }`;
   };
   return (
     <>
@@ -19,14 +23,36 @@ function ProductsContainer({ products, meta }) {
           {totalProducts} product{totalProducts > 1 && "s"}
         </h4>
         <div className="flex gap-x-2">
-          <button type="button">
+          {/* grid tab */}
+          <button
+            type="button"
+            onClick={() => {
+              setLayout("grid");
+            }}
+            className={setActiveStyles("grid")}
+          >
             <BsFillGridFill />
+          </button>
+          {/* list tab */}
+          <button
+            type="button"
+            onClick={() => {
+              setLayout("list");
+            }}
+            className={setActiveStyles("list")}
+          >
+            <BsList />
           </button>
         </div>
       </div>
       {/* PRODUCTS */}
-      <ProductsList products={products} />
-      {/* <ProductsGrid products={products} /> */}
+      {totalProducts === 0 ? (
+        <h5 className="text-2xl mt-16">Sorry, no products found.</h5>
+      ) : layout === "grid" ? (
+        <ProductsGrid products={products} />
+      ) : (
+        <ProductsList products={products} />
+      )}
     </>
   );
 }
