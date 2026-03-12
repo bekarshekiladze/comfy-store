@@ -1,12 +1,15 @@
 import { Form, Link } from "react-router-dom";
-import { FormInput } from "../../../../shared/ui";
-import FormSelect from "../../../../shared/ui/FormSelect";
-import FormRange from "../../../../shared/ui/FormRange";
+import {
+  FormCheckbox,
+  FormInput,
+  FormRange,
+  FormSelect,
+} from "../../../../shared/ui";
 
 function Filters({ meta }) {
   const { companies, categories } = meta;
   return (
-    <Form className="bg-base-200 rounded-md px-8 py-4 grid gap-x-4 gap-y-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+    <Form className="bg-base-200 rounded-md px-8 py-4 grid gap-x-4 gap-y-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 items-center">
       {/* SEARCH */}
       <FormInput
         type="search"
@@ -37,6 +40,12 @@ function Filters({ meta }) {
       />
       {/* PRICE */}
       <FormRange name="price" label="select price" size="range-sm" />
+      {/* SHIPPING */}
+      <FormCheckbox
+        label="free shipping"
+        name="shipping"
+        size="checkbox-small"
+      />
       {/* BUTTONS */}
       <button type="submit" className="btn btn-primary btn-sm uppercase">
         search

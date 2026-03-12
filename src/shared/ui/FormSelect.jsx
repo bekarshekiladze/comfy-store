@@ -8,7 +8,7 @@ function FormSelect({ label, name, list, defaultValue, size }) {
         name={name}
         id={name}
         defaultValue={defaultValue}
-        className={`select select-bordered ${size}`}
+        className={`select select-bordered ${size || ""}`}
       >
         {list.map((item) => {
           return <option key={item}>{item}</option>;
