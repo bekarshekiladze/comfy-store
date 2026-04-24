@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
-import { formatPrice } from "../../shared/utils/formatters/formatPrice";
 import { generateAmountOptions } from "./ui/generateAmountOptions";
+import { formatPrice } from "@/shared/utils";
 
 function SingleProduct() {
   const product = useLoaderData();

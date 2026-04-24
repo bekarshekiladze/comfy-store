@@ -1,5 +1,5 @@
+import { FeaturedProducts, Hero } from "@/widgets";
 import { useLoaderData } from "react-router-dom";
-import { FeaturedProducts, Hero } from "../../widgets/landing";
 
 function Landing() {
   const featuredProducts = useLoaderData();

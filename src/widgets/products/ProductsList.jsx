@@ -1,5 +1,5 @@
+import { formatPrice } from "@/shared/utils";
 import { Link } from "react-router-dom";
-import { formatPrice } from "../../shared/utils";
 
 function ProductsList({ products }) {
   return (

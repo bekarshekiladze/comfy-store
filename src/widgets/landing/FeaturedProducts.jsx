@@ -1,5 +1,5 @@
-import { SectionTitle } from "../../shared/ui";
-import ProductsGrid from "../products/ProductsGrid";
+import { SectionTitle } from "@/shared/ui";
+import { ProductsGrid } from "../products";
 
 function FeaturedProducts({ featuredProducts }) {
   return (
