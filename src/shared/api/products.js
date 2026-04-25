@@ -22,3 +22,12 @@ export const fetchProducts = async () => {
 
   return res.data;
 };
+
+// filtered products
+export const fetchFilteredProducts = async (params) => {
+  const res = await httpClient("/products", {
+    params,
+  });
+
+  return res.data;
+};

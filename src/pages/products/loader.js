@@ -1,7 +1,9 @@
-import { fetchProducts } from "../../shared/api/products";
+import { fetchFilteredProducts } from "@/shared/api";
 
-export const loader = async () => {
-  const res = await fetchProducts();
+export const loader = async ({ request }) => {
+  const params = Object.fromEntries(new URL(request.url).searchParams);
+
+  const res = await fetchFilteredProducts(params);
   const { data: products, meta } = res;
-  return { products, meta };
+  return { products, meta, params };
 };

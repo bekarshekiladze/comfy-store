@@ -1,13 +1,10 @@
-import { Form, Link } from "react-router-dom";
-import {
-  FormCheckbox,
-  FormInput,
-  FormRange,
-  FormSelect,
-} from "../../../../shared/ui";
+import { FormCheckbox, FormInput, FormRange, FormSelect } from "@/shared/ui";
+import { Form, Link, useLoaderData } from "react-router-dom";
 
-function Filters({ meta }) {
+function Filters() {
+  const { meta, params } = useLoaderData();
   const { companies, categories } = meta;
+  const { search, company, category, shipping, order, price } = params;
   return (
     <Form className="bg-base-200 rounded-md px-8 py-4 grid gap-x-4 gap-y-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 items-center">
       {/* SEARCH */}
@@ -16,6 +13,7 @@ function Filters({ meta }) {
         label="search product"
         name="search"
         size="input-sm"
+        defaultValue={search}
       />
       {/* CATEGORIES */}
       <FormSelect
@@ -23,6 +21,7 @@ function Filters({ meta }) {
         name="category"
         list={categories}
         size="select-sm"
+        defaultValue={category}
       />
       {/* COMPANY */}
       <FormSelect
@@ -30,6 +29,7 @@ function Filters({ meta }) {
         name="company"
         list={companies}
         size="select-sm"
+        defaultValue={company}
       />
       {/* ORDER */}
       <FormSelect
@@ -37,14 +37,21 @@ function Filters({ meta }) {
         name="order"
         list={["a-z", "z-a", "high", "low"]}
         size="select-sm"
+        defaultValue={order}
       />
       {/* PRICE */}
-      <FormRange name="price" label="select price" size="range-sm" />
+      <FormRange
+        name="price"
+        label="select price"
+        size="range-sm"
+        value={price}
+      />
       {/* SHIPPING */}
       <FormCheckbox
         label="free shipping"
         name="shipping"
         size="checkbox-small"
+        defaultValue={shipping}
       />
       {/* BUTTONS */}
       <button type="submit" className="btn btn-primary btn-sm uppercase">
