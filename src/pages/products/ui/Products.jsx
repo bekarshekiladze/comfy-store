@@ -1,4 +1,4 @@
-import Filters from "@/features/products/filters/ui/Filters";
+import Filters from "@/pages/products/ui/Filters";
 import { PaginationContainer, ProductsContainer } from "@/widgets/products";
 import { useLoaderData } from "react-router-dom";
 

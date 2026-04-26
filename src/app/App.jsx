@@ -14,8 +14,8 @@ import {
   Register,
   SingleProduct,
   productLoader,
-} from "./pages";
-import { ErrorElement } from "./shared/ui";
+} from "@/pages";
+import { ErrorElement } from "@/shared/ui";
 
 function App() {
   const router = createBrowserRouter([
