@@ -36,9 +36,15 @@ const cartSlice = createSlice({
       cartSlice.caseReducers.recalculateTotals(state);
       toast.success("Item added to cart");
     },
-    clearCart: (state) => {},
     removeItem: (state, action) => {},
     editItem: (state, action) => {},
+
+    clearCart: (state) => {
+      state.cartItems = [];
+      state.numItemsInCart = 0;
+      state.cartTotal = 0;
+      cartSlice.caseReducers.recalculateTotals(state);
+    },
     recalculateTotals: (state, action) => {
       const TAX_PERCENTAGE = 0.1;
       state.tax = TAX_PERCENTAGE * state.cartTotal;
