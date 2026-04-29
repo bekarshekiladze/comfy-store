@@ -1,4 +1,4 @@
-function FormSelect({ label, name, list, defaultValue, size }) {
+export const FormSelect = ({ label, name, list, defaultValue, size }) => {
   return (
     <div className="form-control">
       <label htmlFor={name} className="label py-2 px-1">
@@ -16,6 +16,4 @@ function FormSelect({ label, name, list, defaultValue, size }) {
       </select>
     </div>
   );
-}
-
-export default FormSelect;
+};

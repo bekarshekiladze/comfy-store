@@ -1,2 +1,2 @@
-export { default as Landing } from "./Landing";
-export { loader as landingLoader } from "./loader";
+export { Landing } from "./ui/Landing";
+export { loader as landingLoader } from "./api/loader";

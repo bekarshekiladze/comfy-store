@@ -1,4 +1,4 @@
-function FormInput({ label, name, type, defaultValue, size }) {
+export const FormInput = ({ label, name, type, defaultValue, size }) => {
   return (
     <div className="form-control">
       {/* <legend className="fieldset-legend"></legend> */}
@@ -14,5 +14,4 @@ function FormInput({ label, name, type, defaultValue, size }) {
       />
     </div>
   );
-}
-export default FormInput;
+};

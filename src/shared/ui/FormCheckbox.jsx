@@ -1,4 +1,4 @@
-function FormCheckbox({ label, name, defaultValue, size }) {
+export const FormCheckbox = ({ label, name, defaultValue, size }) => {
   return (
     <div className="form-control flex flex-col justify-center items-center">
       <label htmlFor={name} className="label cursor-pointer py-2 px-1">
@@ -13,6 +13,4 @@ function FormCheckbox({ label, name, defaultValue, size }) {
       />
     </div>
   );
-}
-
-export default FormCheckbox;
+};

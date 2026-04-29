@@ -1,8 +1,8 @@
-import Filters from "@/pages/products/ui/Filters";
 import { PaginationContainer, ProductsContainer } from "@/widgets/products";
 import { useLoaderData } from "react-router-dom";
+import { Filters } from "./Filters";
 
-function Products() {
+export const Products = () => {
   const { products, meta } = useLoaderData();
   console.log({ products, meta });
 
@@ -13,5 +13,4 @@ function Products() {
       <PaginationContainer />
     </>
   );
-}
-export default Products;
+};

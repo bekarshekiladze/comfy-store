@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { formatPrice } from "../utils";
 
-function FormRange({ label, name, size, value }) {
+export const FormRange = ({ label, name, size, value }) => {
   const step = 1000;
   const maxPrice = 100000;
   const [selectedPrice, setSelectedPrice] = useState(value || maxPrice);
@@ -31,6 +31,4 @@ function FormRange({ label, name, size, value }) {
       </div>
     </div>
   );
-}
-
-export default FormRange;
+};

@@ -1,21 +1,17 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import {
-  About,
-  Cart,
-  Checkout,
-  Error,
-  HomeLayout,
-  Landing,
-  landingLoader,
-  Login,
-  Orders,
-  Products,
-  productsLoader,
-  Register,
-  SingleProduct,
-  productLoader,
-} from "@/pages";
+
 import { ErrorElement } from "@/shared/ui";
+import { HomeLayout } from "@/pages/home-layout";
+import { Error } from "@/pages/error";
+import { Landing, landingLoader } from "@/pages/landing";
+import { Products, productsLoader } from "@/pages/products";
+import { productLoader, SingleProduct } from "@/pages/single-product";
+import { Cart } from "@/pages/cart";
+import { About } from "@/pages/about";
+import { Checkout } from "@/pages/checkout";
+import { Orders } from "@/pages/orders";
+import { Login } from "@/pages/login";
+import { Register } from "@/pages/register";
 
 function App() {
   const router = createBrowserRouter([

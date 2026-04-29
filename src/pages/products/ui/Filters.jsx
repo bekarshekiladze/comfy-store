@@ -1,7 +1,7 @@
 import { FormCheckbox, FormInput, FormRange, FormSelect } from "@/shared/ui";
 import { Form, Link, useLoaderData } from "react-router-dom";
 
-function Filters() {
+export const Filters = () => {
   const { meta, params } = useLoaderData();
   const { companies, categories } = meta;
   const { search, company, category, shipping, order, price } = params;
@@ -63,4 +63,3 @@ function Filters() {
     </Form>
   );
 }
-export default Filters;

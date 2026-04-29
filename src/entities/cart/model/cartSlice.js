@@ -36,16 +36,44 @@ const cartSlice = createSlice({
       cartSlice.caseReducers.recalculateTotals(state);
       toast.success("Item added to cart");
     },
-    removeItem: (state, action) => {},
-    editItem: (state, action) => {},
+    editItem: (state, action) => {
+      const { cartID, amount } = action.payload;
+      const found = state.cartItems.find((item) => item.cartID === cartID);
+      if (!found) {
+        return;
+      }
+
+      const diff = amount - found.amount;
+      found.amount = amount;
+      state.numItemsInCart += diff;
+      state.cartTotal += found.price * diff;
+      cartSlice.caseReducers.recalculateTotals(state);
+      toast.success("Cart updated");
+    },
+    removeItem: (state, action) => {
+      const { cartID } = action.payload;
+      const found = state.cartItems.find((item) => item.cartID === cartID);
+
+      if (!found) {
+        return;
+      }
+
+      state.cartItems = state.cartItems.filter(
+        (cartItem) => cartItem.cartID !== cartID,
+      );
+      state.numItemsInCart -= found.amount;
+      state.cartTotal -= found.price * found.amount;
+
+      cartSlice.caseReducers.recalculateTotals(state);
+
+      toast.error("Item removed from cart");
+    },
 
     clearCart: (state) => {
-      state.cartItems = [];
-      state.numItemsInCart = 0;
-      state.cartTotal = 0;
-      cartSlice.caseReducers.recalculateTotals(state);
+      localStorage.setItem("cart", JSON.stringify(defaultState));
+      return defaultState;
     },
-    recalculateTotals: (state, action) => {
+    recalculateTotals: (state) => {
       const TAX_PERCENTAGE = 0.1;
       state.tax = TAX_PERCENTAGE * state.cartTotal;
       state.orderTotal = state.cartTotal + state.shipping + state.tax;

@@ -1,2 +1,2 @@
-export * from "./client";
+export { httpClient } from "./client";
 export * from "./products";
