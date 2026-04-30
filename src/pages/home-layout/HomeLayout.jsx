@@ -1,5 +1,5 @@
 import { Loading } from "@/shared/ui";
-import Header from "@/widgets/header/Header";
+import { Header } from "@/widgets/header";
 import { Navbar } from "@/widgets/navbar";
 import { Outlet, useNavigation } from "react-router-dom";
 
@@ -15,4 +15,4 @@ export const HomeLayout = () => {
       </section>
     </>
   );
-}
+};

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const carouselImages = [hero1, hero2, hero3, hero4];
 
-function Hero() {
+export const Hero = () => {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
       <div>
@@ -37,5 +37,4 @@ function Hero() {
       </div>
     </div>
   );
-}
-export default Hero;
+};

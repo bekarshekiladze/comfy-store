@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function Header() {
+export const Header = () => {
   return (
     <header className="bg-neutral py-2 text-neutral-content">
       <div className="align-element flex justify-center sm:justify-end">
@@ -15,5 +15,4 @@ function Header() {
       </div>
     </header>
   );
-}
-export default Header;
+};
