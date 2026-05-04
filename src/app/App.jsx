@@ -10,8 +10,9 @@ import { Cart } from "@/pages/cart";
 import { About } from "@/pages/about";
 import { Checkout } from "@/pages/checkout";
 import { Orders } from "@/pages/orders";
-import { Login } from "@/pages/login";
-import { Register } from "@/pages/register";
+import { Login, loginAction } from "@/pages/login";
+import { Register, registerAction } from "@/pages/register";
+import { store } from "./store";
 
 function App() {
   const router = createBrowserRouter([
@@ -60,11 +61,13 @@ function App() {
       path: "/login",
       element: <Login />,
       errorElement: <Error />,
+      action: loginAction(store),
     },
     {
       path: "/register",
       element: <Register />,
       errorElement: <Error />,
+      action: registerAction,
     },
   ]);
   return <RouterProvider router={router} />;

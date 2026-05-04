@@ -1,7 +1,7 @@
-import { createSlice, current } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
 
-const defaultState = {
+const initialState = {
   cartItems: [],
   numItemsInCart: 0,
   cartTotal: 0,
@@ -11,7 +11,7 @@ const defaultState = {
 };
 
 const getCartFromLocalStorage = () => {
-  return JSON.parse(localStorage.getItem("cart")) || defaultState;
+  return JSON.parse(localStorage.getItem("cart")) || initialState;
 };
 
 const cartSlice = createSlice({
@@ -69,9 +69,9 @@ const cartSlice = createSlice({
       toast.error("Item removed from cart");
     },
 
-    clearCart: (state) => {
-      localStorage.setItem("cart", JSON.stringify(defaultState));
-      return defaultState;
+    clearCart: () => {
+      localStorage.setItem("cart", JSON.stringify(initialState));
+      return initialState;
     },
     recalculateTotals: (state) => {
       const TAX_PERCENTAGE = 0.1;
